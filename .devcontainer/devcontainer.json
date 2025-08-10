@@ -1,0 +1,16 @@
+{
+  "name": "Laravel Dev Container",
+  "dockerFile": "Dockerfile",
+  "forwardPorts": [8000],
+  "postCreateCommand": "composer install",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "bmewburn.vscode-intelephense-client",
+        "MehediDracula.php-namespace-resolver",
+        "onecentlin.laravel-blade",
+        "amiralizadeh9480.laravel-extra-intellisense"
+      ]
+    }
+  }
+}
