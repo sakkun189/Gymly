@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -21,6 +22,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'user_id',
+        'age',
+        'gender',
+        'matching_enabled',
+        'gym_id',
     ];
 
     /**
@@ -43,6 +49,15 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'matching_enabled' => 'boolean',
         ];
+    }
+
+    /**
+     * Get the gym that the user belongs to.
+     */
+    public function gym(): BelongsTo
+    {
+        return $this->belongsTo(Gym::class);
     }
 }
